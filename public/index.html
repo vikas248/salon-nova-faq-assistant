@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRI AI Solutions - Salon Nova Demo</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TRI AI Solutions Demo</h1>
+            <p class="subtitle">Salon Nova - Brand Voice & FAQ Assistant</p>
+        </header>
+
+        <main>
+            <form id="generateForm" class="form-container">
+                <div class="input-section">
+                    <div class="input-group">
+                        <label for="faqInput">FAQ Knowledge Base</label>
+                        <textarea 
+                            id="faqInput" 
+                            name="faq" 
+                            rows="8" 
+                            placeholder="Enter your FAQ content here..."
+                            aria-describedby="faq-help"
+                        ></textarea>
+                        <small id="faq-help" class="help-text">
+                            Format: Q: Question? A: Answer. (One Q&A per line or paragraph)
+                        </small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="brandVoiceInput">Brand Voice (JSON)</label>
+                        <textarea 
+                            id="brandVoiceInput" 
+                            name="brandVoice" 
+                            rows="6" 
+                            placeholder="Enter brand voice configuration as JSON..."
+                            aria-describedby="brand-help"
+                        ></textarea>
+                        <small id="brand-help" class="help-text">
+                            JSON format with tone, style_rules, and signoff properties
+                        </small>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="questionInput">User Question</label>
+                        <textarea 
+                            id="questionInput" 
+                            name="question" 
+                            rows="3" 
+                            placeholder="Enter the user's question here..."
+                            aria-describedby="question-help"
+                        ></textarea>
+                        <small id="question-help" class="help-text">
+                            The question that needs to be answered using the FAQ and brand voice
+                        </small>
+                    </div>
+                </div>
+
+                <div class="button-section">
+                    <button type="submit" id="generateBtn" class="generate-btn">
+                        <span class="btn-text">Generate Answer</span>
+                        <span class="btn-loading" style="display: none;">Generating...</span>
+                    </button>
+                    <button type="button" id="resetBtn" class="reset-btn">Reset to Defaults</button>
+                </div>
+            </form>
+
+            <div id="results" class="results-section" style="display: none;">
+                <h2>Generated Response</h2>
+                
+                <div class="result-group">
+                    <h3>Answer</h3>
+                    <div id="answerOutput" class="answer-output"></div>
+                </div>
+
+                <div class="result-group">
+                    <h3>Sources Used</h3>
+                    <div id="sourcesOutput" class="sources-output"></div>
+                </div>
+
+                <div class="result-group">
+                    <h3>Response Time</h3>
+                    <div id="latencyOutput" class="latency-output"></div>
+                </div>
+            </div>
+
+            <div id="error" class="error-section" style="display: none;">
+                <h3>Error</h3>
+                <div id="errorMessage" class="error-message"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 TRI AI Solutions - Demo Application</p>
+        </footer>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
